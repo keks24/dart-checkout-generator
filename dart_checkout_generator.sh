@@ -85,7 +85,7 @@ getUsage()
     /bin/echo "  --master-out-only              Calculate all possible combination for a master checkout game but consider triple outs only."
     /bin/echo "  --help                         Print this help."
     /bin/echo "  --version                      Print the version and exit."
-    /bin/exit 0
+    exit 0
 }
 
 getVersion()
