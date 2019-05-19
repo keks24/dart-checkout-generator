@@ -66,26 +66,26 @@ calculateCheckout()
 
 getUsage()
 {
-    echo "Usage: ${0} <options>"
-    echo ""
-    echo "OPTIONS:"
-    echo "  --double-out                  Calculate all possible combinations for a double checkout game."
-    echo "  --master-out                  Calculate all possible combinations for a master checkout game."
-    echo "  --help                        Print this help."
-    echo "  --version                     Print the version and exit."
-    exit 0
+    /bin/echo "Usage: ${0} <options>"
+    /bin/echo ""
+    /bin/echo "OPTIONS:"
+    /bin/echo "  --double-out                  Calculate all possible combinations for a double checkout game."
+    /bin/echo "  --master-out                  Calculate all possible combinations for a master checkout game."
+    /bin/echo "  --help                        Print this help."
+    /bin/echo "  --version                     Print the version and exit."
+    /bin/exit 0
 }
 
 getVersion()
 {
-    echo '       __           __           __              __               __                                        __                  __  '
-    echo '  ____/ /___ ______/ /_    _____/ /_  ___  _____/ /______  __  __/ /_     ____ ____  ____  ___  _________ _/ /_____  __________/ /_ '
-    echo ' / __  / __ `/ ___/ __/   / ___/ __ \/ _ \/ ___/ //_/ __ \/ / / / __/    / __ `/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/ ___/ __ \'
-    echo '/ /_/ / /_/ / /  / /_    / /__/ / / /  __/ /__/ ,< / /_/ / /_/ / /_     / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /  (__  ) / / /'
-    echo '\__,_/\__,_/_/   \__/____\___/_/ /_/\___/\___/_/|_|\____/\__,_/\__/_____\__, /\___/_/ /_/\___/_/   \__,_/\__/\____/_(_)/____/_/ /_/ '
-    echo '                   /_____/                                       /_____/____/                                                       '
-    echo ""
-    echo "Version 0.2.4"
+    /bin/echo '       __           __           __              __               __                                        __                  __  '
+    /bin/echo '  ____/ /___ ______/ /_    _____/ /_  ___  _____/ /______  __  __/ /_     ____ ____  ____  ___  _________ _/ /_____  __________/ /_ '
+    /bin/echo ' / __  / __ `/ ___/ __/   / ___/ __ \/ _ \/ ___/ //_/ __ \/ / / / __/    / __ `/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/ ___/ __ \'
+    /bin/echo '/ /_/ / /_/ / /  / /_    / /__/ / / /  __/ /__/ ,< / /_/ / /_/ / /_     / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /  (__  ) / / /'
+    /bin/echo '\__,_/\__,_/_/   \__/____\___/_/ /_/\___/\___/_/|_|\____/\__,_/\__/_____\__, /\___/_/ /_/\___/_/   \__,_/\__/\____/_(_)/____/_/ /_/ '
+    /bin/echo '                   /_____/                                       /_____/____/                                                       '
+    /bin/echo ""
+    /bin/echo "Version 0.2.6"
     exit 0
 }
 
