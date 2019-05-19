@@ -2,7 +2,7 @@
 `dart-checkout-generator` generates every possible checkout combination for `double out` and `master out` games.
 
 # Prerequisites
-* The following packages are installed:
+The following packages are installed:
 ```no-highlight
 bash
 ```
