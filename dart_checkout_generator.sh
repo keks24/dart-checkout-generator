@@ -16,7 +16,7 @@
 #############################################################################
 
 # define global variables
-declare -ai single_score_array=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20)
+declare -ai single_score_array=(0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 25)
 declare -ai double_score_array=(0 2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 50)
 declare -ai triple_score_array=(0 3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60)
 declare -ai double_checkout_score_array=(2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 50)
@@ -34,15 +34,26 @@ calculateCheckout()
 {
     local checkout_game="${1}"
 
-    if [[ "${checkout_game}" == "double_out" ]]
-    then
-        local max_checkout_score="${max_checkout_score_double_out}"
-        local checkout_dart_score_array=("${double_checkout_score_array[@]}")
-    elif [[ "${checkout_game}" == "master_out" ]]
-    then
-        local max_checkout_score="${max_checkout_score_master_out}"
-        local checkout_dart_score_array=("${double_checkout_score_array[@]}" "${triple_checkout_score_array[@]}")
-    fi
+    case "${checkout_game}" in
+        "double_out")
+            local max_checkout_score="${max_checkout_score_double_out}"
+            local checkout_dart_score_array=("${double_checkout_score_array[@]}")
+            ;;
+
+        "master_out")
+            local max_checkout_score="${max_checkout_score_master_out}"
+            local checkout_dart_score_array=("${double_checkout_score_array[@]}" "${triple_checkout_score_array[@]}")
+            ;;
+
+        "master_out_only")
+            local max_checkout_score="${max_checkout_score_master_out}"
+            local checkout_dart_score_array=("${triple_checkout_score_array[@]}")
+            ;;
+
+        "*")
+            echo -e "\e[01;31mSomething went wrong.\e[0m"
+            exit 1
+    esac
 
     for checkout_score in $(eval /bin/echo {${max_checkout_score}..${double_score_array[0]}})
     do
@@ -56,7 +67,7 @@ calculateCheckout()
 
                     if [[ "$(( total_score - checkout_score ))" == "0" ]]
                     then
-                        /bin/echo -e "checkout score: ${checkout_score}\t|\t1st dart: ${first_dart_score}\t|\t2nd dart: ${second_dart_score}\t|\tcheckout dart: ${checkout_dart_score}"
+                        /bin/echo -e "checkout score: ${checkout_score} | 1st dart: ${first_dart_score} | 2nd dart: ${second_dart_score} | checkout dart: ${checkout_dart_score}"
                     fi
                 done
             done
@@ -69,10 +80,11 @@ getUsage()
     /bin/echo "Usage: ${0} <options>"
     /bin/echo ""
     /bin/echo "OPTIONS:"
-    /bin/echo "  --double-out                  Calculate all possible combinations for a double checkout game."
-    /bin/echo "  --master-out                  Calculate all possible combinations for a master checkout game."
-    /bin/echo "  --help                        Print this help."
-    /bin/echo "  --version                     Print the version and exit."
+    /bin/echo "  --double-out                   Calculate all possible combinations for a double checkout game."
+    /bin/echo "  --master-out                   Calculate all possible combinations for a master checkout game."
+    /bin/echo "  --master-out-only              Calculate all possible combination for a master checkout game but consider triple outs only."
+    /bin/echo "  --help                         Print this help."
+    /bin/echo "  --version                      Print the version and exit."
     /bin/exit 0
 }
 
@@ -109,6 +121,10 @@ main()
 
             "--master-out")
                 calculateCheckout master_out
+                ;;
+
+            "--master-out-only")
+                calculateCheckout master_out_only
                 ;;
 
             "--version")
