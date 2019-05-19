@@ -67,7 +67,7 @@ calculateCheckout()
 
                     if [[ "$(( total_score - checkout_score ))" == "0" ]]
                     then
-                        /bin/echo -e "checkout score: ${checkout_score} | 1st dart: ${first_dart_score} | 2nd dart: ${second_dart_score} | checkout dart: ${checkout_dart_score}"
+                        /bin/echo -e "checkout score: ${checkout_score}\t|\t1st dart: ${first_dart_score}\t|\t2nd dart: ${second_dart_score}\t|\tcheckout dart: ${checkout_dart_score}"
                     fi
                 done
             done
