@@ -23,7 +23,6 @@ declare -ai double_checkout_score_array=(2 4 6 8 10 12 14 16 18 20 22 24 26 28 3
 declare -ai triple_checkout_score_array=(3 6 9 12 15 18 21 24 27 30 33 36 39 42 45 48 51 54 57 60)
 declare -i max_checkout_score_double_out="170"
 declare -i max_checkout_score_master_out="180"
-#declare -i dart_amount="3"
 ## combine all score combinations for the first two darts
 declare -ai first_dart_score_array=("${single_score_array[@]}" "${double_score_array[@]}" "${triple_score_array[@]}")
 declare -ai second_dart_score_array=("${single_score_array[@]}" "${double_score_array[@]}" "${triple_score_array[@]}")
@@ -44,9 +43,6 @@ calculateCheckout()
         local max_checkout_score="${max_checkout_score_master_out}"
         local checkout_dart_score_array=("${double_checkout_score_array[@]}" "${triple_checkout_score_array[@]}")
     fi
-
-    local checkout_with_two_darts="false"
-    local checkout_with_one_dart="false"
 
     for checkout_score in $(eval /bin/echo {${max_checkout_score}..${double_score_array[0]}})
     do
