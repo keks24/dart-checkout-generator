@@ -82,7 +82,7 @@ getUsage()
     /bin/echo "OPTIONS:"
     /bin/echo "  --double-out                   Calculate all possible combinations for a double checkout game."
     /bin/echo "  --master-out                   Calculate all possible combinations for a master checkout game."
-    /bin/echo "  --master-out-only              Calculate all possible combination for a master checkout game but consider triple outs only."
+    /bin/echo "  --master-out-only              Calculate all possible combinations for a master checkout game but consider triple outs only."
     /bin/echo "  --help                         Print this help."
     /bin/echo "  --version                      Print the version and exit."
     exit 0
@@ -97,7 +97,7 @@ getVersion()
     /bin/echo '\__,_/\__,_/_/   \__/____\___/_/ /_/\___/\___/_/|_|\____/\__,_/\__/_____\__, /\___/_/ /_/\___/_/   \__,_/\__/\____/_(_)/____/_/ /_/ '
     /bin/echo '                   /_____/                                       /_____/____/                                                       '
     /bin/echo ""
-    /bin/echo "Version 0.2.9"
+    /bin/echo "Version 0.3.0"
     exit 0
 }
 
