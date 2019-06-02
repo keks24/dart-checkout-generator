@@ -29,7 +29,7 @@ declare -ai second_dart_score_array=("${single_score_array[@]}" "${double_score_
 
 # refactor me: this function brute forces all combinations; it would be more efficient to use a decent formula.
 #              also there are duplicate outputs
-# calculate all combinations for a double checkout with three darts
+# calculate all combinations for a double or master checkout game
 calculateCheckout()
 {
     local checkout_game="${1}"
