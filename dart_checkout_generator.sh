@@ -63,7 +63,7 @@ calculateCheckout()
             do
                 for first_dart_score in "${first_dart_score_array[@]}"
                 do
-                    total_score="$(( first_dart_score + second_dart_score + checkout_dart_score ))"
+                    local total_score="$(( first_dart_score + second_dart_score + checkout_dart_score ))"
 
                     if [[ "$(( total_score - checkout_score ))" == "0" ]]
                     then
@@ -103,7 +103,7 @@ getVersion()
 
 main()
 {
-    if [[ ${1} == "" ]]
+    if [[ "${1}" == "" ]]
     then
         getUsage
     fi
