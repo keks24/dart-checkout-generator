@@ -77,7 +77,9 @@ calculateCheckout()
 
 getUsage()
 {
-    case "${1}" in
+    error_message="${1}"
+
+    case "${error_message}" in
         "error")
             exit_code="1"
             ;;
