@@ -50,8 +50,8 @@ calculateCheckout()
             local checkout_dart_score_array=("${triple_checkout_score_array[@]}")
             ;;
 
-        "*")
-            echo -e "\e[01;31mSomething went wrong.\e[0m"
+        *)
+            echo -e "\e[01;31mSomething went wrong while choosing the checkout game.\e[0m"
             exit 1
     esac
 
@@ -77,6 +77,20 @@ calculateCheckout()
 
 getUsage()
 {
+    case "${1}" in
+        "error")
+            exit_code="1"
+            ;;
+
+        "ok")
+            exit_code="0"
+            ;;
+
+        *)
+            exit_code="1"
+    esac
+
+    /bin/echo ""
     /bin/echo "Usage: ${0} <options>"
     /bin/echo ""
     /bin/echo "OPTIONS:"
@@ -85,7 +99,7 @@ getUsage()
     /bin/echo "  --master-out-only              Calculate all possible combinations for a master checkout game but consider triple outs only."
     /bin/echo "  --help                         Print this help."
     /bin/echo "  --version                      Print the version and exit."
-    exit 0
+    exit "${exit_code}"
 }
 
 getVersion()
@@ -105,7 +119,7 @@ main()
 {
     if [[ "${1}" == "" ]]
     then
-        getUsage
+        getUsage "error"
     fi
 
     while (( ${#} ))
@@ -116,7 +130,7 @@ main()
                 ;;
 
             "--help")
-                getUsage
+                getUsage "ok"
                 ;;
 
             "--master-out")
@@ -131,9 +145,9 @@ main()
                 getVersion
                 ;;
 
-            "*")
-                echo -e "\e[01;31mSomething went wrong.\e[0m"
-                exit 1
+            *)
+                echo -e "\e[01;31mThe parameter '${1}' does not exist.\e[0m"
+                getUsage "error"
         esac
 
         shift 1 || break
