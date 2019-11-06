@@ -34,7 +34,7 @@ OPTIONS:
 ```
 
 # Known issues
-Currently there are still duplicate outputs. A generated list has to be filtered afterwards in an ugly way:
+Currently there are still duplicate outputs. A generated list has to be filtered in an ugly way afterwards:
 ```bash
 $ ./dart_checkout_generator --double-out > double_checkouts
 $ sort --reverse --numeric-sort --key="3" double_checkouts | uniq > double_checkouts_filtered
