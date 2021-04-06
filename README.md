@@ -10,7 +10,7 @@ bash
 # Installation
 Clone the repository into your current working directory:
 ```bash
-$ git clone "https://gitlab.com/keks24/dart-checkout-generator.git"
+$ git clone "https://codeberg.org/keks24/dart-checkout-generator.git"
 ```
 
 # Usage
